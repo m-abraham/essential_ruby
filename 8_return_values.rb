@@ -42,44 +42,63 @@ end
 #  - we sum up all the elements
 #  - then we divide the sum by the number of elements in the set
 
+
 def mean(list_of_numbers)
-  # Let's re-use the work we did above in the sum method
+    average = sum(list_of_numbers).to_f/ list_of_numbers.length.to_f
 
-  # ====================
-  # Your code goes here.
-  # ====================
-end
+    return average
+  end
 
-# VARIANCE
-# ========
-# To find the variance of a set,
-#  - we find the mean of the set
-#  - for each number in the set,
-#   - we find the difference between the number and the mean
-#   - we square the difference
-#  - the variance is the mean of the squared differences
+
+
+#   return running_total
+# end
+#   # Let's re-use the work we did above in the sum method
+
+# def sum(list_of_numbers)
+#   running_total = 0
+#   list_of_numbers.each do |number|
+#     running_total = running_total + number
+#   end
+
+
+# # VARIANCE
+# # ========
+# # To find the variance of a set,
+# #  - we find the mean of the set
+# #  - for each number in the set,
+# #   - we find the difference between the number and the mean
+# #   - we square the difference
+# #  - the variance is the mean of the squared differences
+
+# def variance(list_of_numbers)
+#   # Let's re-use the work we did above in the mean method
 
 def variance(list_of_numbers)
-  # Let's re-use the work we did above in the mean method
+  average_dataset= mean(list_of_numbers)
+    running_total = 0
+  list_of_numbers.each do |number|
+     running_total = running_total + ((number - average_dataset)**2)
+  end   
+     vari = running_total/list_of_numbers.length
+    return vari
+  end
+# # end
 
-  # ====================
-  # Your code goes here.
-  # ====================
-end
-
-# STANDARD DEVIATION
-# ==================
-# To find the standard deviation of a set,
-#  - take the square root of the variance
+# # # STANDARD DEVIATION
+# # # ==================
+# # # To find the standard deviation of a set,
+# # #  - take the square root of the variance
 
 def standard_deviation(list_of_numbers)
-  # ====================
-  # Your code goes here.
-  # ====================
+  vari_dataset= variance(list_of_numbers)
+  standdev_dataset= vari_dataset ** 0.5
+
+  return standdev_dataset
 end
 
 
-# Finally, everything above allows us to do:
+# # # Finally, everything above allows us to do:
 
 first_dataset = [93, 65, 87, 68, 2, 64, 36, 96, 45, 47]
 stdev1 = standard_deviation(first_dataset)
